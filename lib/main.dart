@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/DatePicker.dart';
 import 'mainpage.dart';
 import 'signin.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: Signin(),
+    home: MainPage(),
   ));
 }
 

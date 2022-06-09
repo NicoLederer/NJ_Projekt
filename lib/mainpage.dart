@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:project/home.dart';
 import 'package:project/my_flutter_app_icons.dart';
+
+import 'DatePicker.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -14,20 +17,24 @@ class _MainPageState extends State<MainPage> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
 
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _pages = <Widget>[
     Text(
       'Ihre Termine als Tutor',
       style: optionStyle,
   ),
-    Text(
-      'Ihre Termine als Tutor',
+    DatePicker(),
+    /*Text(
+      'Ihr Profil',
       style: optionStyle,
-    ),
-    Text(
-      'Einstellungen zu Ihrem Profil',
-      style: optionStyle,
-    ),
+    ),*/
+    Profile(),
   ];
+
+
+
+
+
+
 
   void _onItemTapped(int index) {
     setState(() {
@@ -45,7 +52,7 @@ class _MainPageState extends State<MainPage> {
 
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _pages.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
