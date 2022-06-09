@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/mainpage.dart';
 
 class DatePicker extends StatefulWidget{
   const DatePicker({Key? key}) : super(key: key);
@@ -21,9 +22,12 @@ class _DatePickerState extends State<DatePicker> {
     ).then((value) {
       setState(() {
         _dateTime = value!;
+        names.insert(0,_dateTime.day.toString()+"."+ _dateTime.month.toString()+"."+_dateTime.year.toString());
       });
     });
   }
+
+  DateTime get dateTime => _dateTime;
 
   @override
   Widget build(BuildContext context) {

@@ -57,7 +57,7 @@ class _SigninState extends State<Signin> {
 
     if(statusCode == 200){
       Navigator.push(
-          context, new MaterialPageRoute(builder: (context) => Dashboard()));
+          context, new MaterialPageRoute(builder: (context) => MainPage()));
     }
 
   }

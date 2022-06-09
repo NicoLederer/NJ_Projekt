@@ -4,6 +4,8 @@ import 'package:project/my_flutter_app_icons.dart';
 
 import 'DatePicker.dart';
 
+final List<String> names = <String>[];
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -13,28 +15,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-
-
-  static List<Widget> _pages = <Widget>[
-    Text(
-      'Ihre Termine als Tutor',
-      style: optionStyle,
-  ),
-    DatePicker(),
-    /*Text(
-      'Ihr Profil',
-      style: optionStyle,
-    ),*/
-    Profile(),
-  ];
-
-
-
-
-
-
+  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   void _onItemTapped(int index) {
     setState(() {
@@ -44,6 +25,35 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    final List<Widget> _pages = <Widget>[
+      ListView.builder(
+          padding: const EdgeInsets.all(8),
+          itemCount: names.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              height: 70,
+              margin: EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                color: Color(0xff134291),
+              ),
+              child: Center(
+                  child: Text('${names[index]}',
+                    style: TextStyle(color: Colors.white,fontSize: 18),
+                  )
+              ),
+            );
+          }
+      ),
+      DatePicker(),
+      /*Text(
+      'Ihr Profil',
+      style: optionStyle,
+    ),*/
+      Profile(),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(MyFlutterApp.htlsaalfelden),
